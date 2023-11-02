@@ -1,3 +1,5 @@
+import { Header } from './components/Header.tsx'
+import { Task } from './components/Task.tsx'
 
 function App() {
   return (
@@ -24,17 +26,9 @@ function App() {
                 </span>
             </div>
             <div>
-                <div>
-                    Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.
-                </div>
-
-                <div>
-                    Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.
-                </div>
-
-                <div>
-                    Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.
-                </div>
+                <Task />
+                <Task />
+                <Task />
             </div>
         </section>
     </div>
