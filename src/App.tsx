@@ -1,12 +1,8 @@
 
 function App() {
   return (
-    <>
-      <header>
-          <h1 className="">
-              Hello world!
-          </h1>
-      </header>
+    <div className=''>
+        <Header />
 
         <section>
             <input />
@@ -41,7 +37,7 @@ function App() {
                 </div>
             </div>
         </section>
-    </>
+    </div>
   )
 }
 
