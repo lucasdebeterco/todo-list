@@ -1,38 +1,36 @@
 import { Header } from './components/Header.tsx'
 import { Task } from './components/Task.tsx'
+import { SearchArea } from './components/SearchArea.tsx'
 
 function App() {
-  return (
-    <div className=''>
-        <Header />
+    return (
+        <div className='bg-gray-600'>
+            <Header/>
 
-        <section>
-            <input />
-            <button type='submit'>
-                Criar
-            </button>
-        </section>
+            <div className='max-w-[736px] mx-auto'>
+                <SearchArea/>
 
-        <section>
-            <div>
+                <section>
+                    <div>
                 <span>
                     Tarefas criadas
                     <strong>5</strong>
                 </span>
 
-                <span>
+                        <span>
                     Concluídas
                     <strong>2 de 5</strong>
                 </span>
+                    </div>
+                    <div>
+                        <Task/>
+                        <Task/>
+                        <Task/>
+                    </div>
+                </section>
             </div>
-            <div>
-                <Task />
-                <Task />
-                <Task />
-            </div>
-        </section>
-    </div>
-  )
+        </div>
+    )
 }
 
 export default App
