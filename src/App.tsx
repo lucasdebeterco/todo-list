@@ -10,22 +10,31 @@ function App() {
             <div className='max-w-[736px] mx-auto'>
                 <SearchArea/>
 
-                <section>
-                    <div>
-                <span>
-                    Tarefas criadas
-                    <strong>5</strong>
-                </span>
+                <section className='flex flex-col mt-[4rem]'>
+                    <div className='flex justify-between'>
+                        <div className='flex items-center gap-[0.6rem]'>
+                            <span className='text-blue font-bold text-[0.875rem]'>Tarefas criadas</span>
+                            <strong
+                                className='flex justify-center items-center text-[0.815rem] h-[19px] text-gray-200 bg-gray-400 rounded-[16px] px-[8px]'
+                            >
+                                5
+                            </strong>
+                        </div>
 
-                        <span>
-                    Concluídas
-                    <strong>2 de 5</strong>
-                </span>
+                        <div className='flex items-center gap-[0.6rem]'>
+                            <span className='text-purple font-bold text-[0.875rem]' >Concluídas</span>
+                            <strong
+                                className='flex justify-center items-center text-[0.815rem] h-[19px] text-gray-200 bg-gray-400 rounded-[16px] px-[8px]'
+                            >
+                                2 de 5
+                            </strong>
+                        </div>
                     </div>
-                    <div>
-                        <Task/>
-                        <Task/>
-                        <Task/>
+
+                    <div className='flex flex-col gap-[0.75rem] mt-[1.5rem]'>
+                        <Task />
+                        <Task />
+                        <Task />
                     </div>
                 </section>
             </div>
