@@ -4,7 +4,7 @@ import { SearchArea } from './components/SearchArea.tsx'
 
 function App() {
     return (
-        <div className='bg-gray-600'>
+        <div className='bg-gray-600 h-[100vh]'>
             <Header/>
 
             <div className='max-w-[736px] mx-auto'>
