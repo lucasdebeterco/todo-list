@@ -5,7 +5,7 @@ export interface Task {
     done: boolean
 }
 
-interface ITask {
+export interface ITask {
     task: Task
 }
 
