@@ -1,20 +1,20 @@
 import { PlusCircle } from 'phosphor-react';
-import { FormEvent } from 'react';
+import { FormEvent, useContext } from 'react';
 import { Task } from './Task.tsx';
+import { TaskContext } from '../context/TaskContext.tsx';
 
 export function SearchArea() {
-    localStorage.getItem('taks')
+    const { setTasks } = useContext(TaskContext)
 
-   function handleFormSubmit(event: FormEvent<HTMLFormElement>){
+    function handleFormSubmit(event: FormEvent<HTMLFormElement>){
        event.preventDefault()
 
        const newTask: Task = {
            description: String(Object.fromEntries(new FormData(event.currentTarget)).task),
            done: false
        };
-
-       console.log(newTask)
-   }
+        setTasks([newTask])
+    }
 
     return (
         <form
