@@ -1,19 +1,24 @@
-import { PlusCircle } from 'phosphor-react';
-import { FormEvent, useContext } from 'react';
-import { Task } from './Task.tsx';
-import { TaskContext } from '../context/TaskContext.tsx';
+import { PlusCircle } from 'phosphor-react'
+import { FormEvent, useContext } from 'react'
+import { Task } from './Task.tsx'
+import { TaskContext } from '../context/TaskContext.tsx'
+import { v4 as uuidv4 } from 'uuid'
 
 export function SearchArea() {
-    const { setTasks } = useContext(TaskContext)
+    const { tasks, setTasks } = useContext(TaskContext)
 
     function handleFormSubmit(event: FormEvent<HTMLFormElement>){
        event.preventDefault()
 
        const newTask: Task = {
+           id: uuidv4(),
            description: String(Object.fromEntries(new FormData(event.currentTarget)).task),
            done: false
        };
-        setTasks([newTask])
+
+       const tasksUpdated = [...tasks, newTask]
+
+        setTasks(tasksUpdated)
     }
 
     return (

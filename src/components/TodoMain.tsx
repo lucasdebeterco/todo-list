@@ -7,6 +7,8 @@ import { TaskContext } from '../context/TaskContext.tsx';
 export function TodoMain() {
     const { tasks } = useContext(TaskContext)
 
+    console.log(tasks)
+
     return (
         <div className='bg-gray-600 h-[100vh]'>
             <Header/>
@@ -37,7 +39,7 @@ export function TodoMain() {
 
                     <div className='flex flex-col gap-[0.75rem] mt-[1.5rem]'>
                         {tasks && tasks.map((task: Task) => {
-                            return <Task task={task} />
+                            return <Task task={task} key={task.id} />
                         })}
                     </div>
                 </section>

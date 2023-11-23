@@ -15,8 +15,6 @@ export const TaskContext = createContext<ITaskContext>({ tasks: [], setTasks: nu
 export const TaskProvider = ({children}: ITaskProvider) => {
     const [tasks, setTasks] = useState<Task[]>([])
 
-    console.log(tasks)
-
     return (
         <TaskContext.Provider value={{tasks, setTasks}}>
             {children}
