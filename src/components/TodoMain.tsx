@@ -7,8 +7,6 @@ import { TaskContext } from '../context/TaskContext.tsx';
 export function TodoMain() {
     const { tasks } = useContext(TaskContext)
 
-    console.log(tasks)
-
     return (
         <div className='bg-gray-600 h-[100vh]'>
             <Header/>

@@ -18,6 +18,7 @@ export function SearchArea() {
 
        const tasksUpdated = [...tasks, newTask]
 
+        localStorage.setItem('taks', JSON.stringify(tasksUpdated))
         setTasks(tasksUpdated)
     }
 

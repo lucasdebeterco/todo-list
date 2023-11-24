@@ -13,7 +13,9 @@ interface ITaskContext {
 export const TaskContext = createContext<ITaskContext>({ tasks: [], setTasks: null})
 
 export const TaskProvider = ({children}: ITaskProvider) => {
-    const [tasks, setTasks] = useState<Task[]>([])
+    const [tasks, setTasks] = useState<Task[]>(
+        JSON.parse(localStorage.getItem('taks') ?? '')
+    )
 
     return (
         <TaskContext.Provider value={{tasks, setTasks}}>

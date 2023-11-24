@@ -20,12 +20,17 @@ export function Task({task}: ITask) {
         const updatedTasks = [...tasks]
         updatedTasks[taskIndex].done = !updatedTasks[taskIndex].done
 
+        localStorage.setItem('taks', JSON.stringify(updatedTasks))
         setTasks(updatedTasks)
+
     }
 
     return (
         <div
-            className='flex items-center bg-gray-500 hover:bg-gray-400 border-[1px] border-gray-400 rounded-[16px] p-[1rem] text-gray-100 text-[0.875rem] transition-colors'
+            className={`
+                flex items-center bg-gray-500 hover:bg-gray-400 border-[1px] border-gray-400 rounded-[16px] p-[1rem] text-gray-100 text-[0.875rem] transition-colors
+                ${task.done && 'line-through text-gray-300'}
+            `}
         >
             <div
                 className={`flex items-center justify-center w-[18px] h-[18px] rounded-[50%] mr-[10px] ${task.done ? 'bg-purple-dark' : 'border-[2px] border-blue'}`}
