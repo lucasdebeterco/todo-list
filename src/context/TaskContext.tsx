@@ -6,19 +6,26 @@ interface ITaskProvider {
 }
 
 interface ITaskContext {
-    tasks: Task[];
-    setTasks: any;
+    tasks: Task[]
+    setUpdatedTaks: (updatedTasks: Task[]) => void
 }
 
-export const TaskContext = createContext<ITaskContext>({ tasks: [], setTasks: null})
+export const TaskContext = createContext<ITaskContext>({ tasks: [], setUpdatedTaks: () => {}})
 
 export const TaskProvider = ({children}: ITaskProvider) => {
     const [tasks, setTasks] = useState<Task[]>(
-        JSON.parse(localStorage.getItem('taks') ?? '')
+        JSON.parse(localStorage.getItem('taks') ?? '[]')
     )
 
+    function setUpdatedTaks(updatedTasks: Task[]) {
+        updatedTasks.sort((a,b) => Number(a.done) - Number(b.done))
+
+        setTasks(updatedTasks)
+        localStorage.setItem('taks', JSON.stringify(updatedTasks))
+    }
+
     return (
-        <TaskContext.Provider value={{tasks, setTasks}}>
+        <TaskContext.Provider value={{tasks, setUpdatedTaks}}>
             {children}
         </TaskContext.Provider>
     )

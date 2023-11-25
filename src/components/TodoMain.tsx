@@ -3,6 +3,7 @@ import { SearchArea } from './SearchArea.tsx';
 import { Task } from './Task.tsx';
 import { useContext } from 'react';
 import { TaskContext } from '../context/TaskContext.tsx';
+import { ClipboardText } from 'phosphor-react';
 
 export function TodoMain() {
     const { tasks } = useContext(TaskContext)
@@ -21,7 +22,7 @@ export function TodoMain() {
                             <strong
                                 className='flex justify-center items-center text-[0.815rem] h-[19px] text-gray-200 bg-gray-400 rounded-[16px] px-[8px]'
                             >
-                                5
+                                {tasks.length}
                             </strong>
                         </div>
 
@@ -30,15 +31,22 @@ export function TodoMain() {
                             <strong
                                 className='flex justify-center items-center text-[0.815rem] h-[19px] text-gray-200 bg-gray-400 rounded-[16px] px-[8px]'
                             >
-                                2 de 5
+                                {tasks.filter(task => task.done === true).length} de {tasks.length}
                             </strong>
                         </div>
                     </div>
 
                     <div className='flex flex-col gap-[0.75rem] mt-[1.5rem]'>
-                        {tasks && tasks.map((task: Task) => {
+
+                        {(tasks && tasks.length) ? tasks.map((task: Task) => {
                             return <Task task={task} key={task.id} />
-                        })}
+                        }) : (
+                            <div className='flex items-center justify-center flex-col mt-[4rem] text-gray-300'>
+                                <ClipboardText size={56} color='#808080' />
+                                <span className='mt-[1rem]'>Você ainda não tem tarefas cadastradas</span>
+                                <span>Crie tarefas e organize seus itens a fazer</span>
+                            </div>
+                        )}
                     </div>
                 </section>
             </div>
